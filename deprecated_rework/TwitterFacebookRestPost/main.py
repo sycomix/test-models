@@ -34,7 +34,7 @@ from nltk.classify import NaiveBayesClassifier
 from nltk.corpus import movie_reviews
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.svm import LinearSVC
-from cognita_client.push import push_sklearn_model
+from acumos.push import push_sklearn_model
 
 
 
@@ -288,5 +288,5 @@ if __name__=='__main__':
             List_of_negatives.append('neg')
         print('Probability:', round(probdist.prob(pred_sentiment), 2))
 
-    push_sklearn_model(model, corpus, name='sklearn_sentiment_techM' , api='http://cognita-ist2-vm01-core.eastus.cloudapp.azure.com:8090/onboarding-app/v2/models')
+    push_sklearn_model(model, corpus, name='sklearn_sentiment_techM' , api='http://acumos:8090/onboarding-app/v2/models')
 

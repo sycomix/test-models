@@ -66,14 +66,15 @@ function onboard() {
     fail "Authentication failed at hpst $host"
   fi
 
-  # Use this jwtToken for all the bootstrap onboarding
+  # Use the jwtToken for onboarding
   log "Authentication successful"
   echo "Onboarding model $model at $host ..."
+  proto=$(ls $model/*.proto)
   if [[ "$insecure" == "insecure" ]]; then k="-k"; fi
   curl -o ~/json $k -H "Authorization: $jwtToken"\
        -F "model=@$model/model.zip;type=application/zip" \
        -F "metadata=@$model/metadata.json;type=application/json"\
-       -F "schema=@$model/model.proto;type=application/text" $PUSHURL
+       -F "schema=@$proto;type=application/text" $PUSHURL
   if [[ $(grep -c -e "The upstream server is timing out" -e "Service unavailable" ~/json) -gt 0 ]]; then 
     log "Onboarding $model failed at host $host"
     cat ~/json

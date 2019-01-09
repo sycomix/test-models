@@ -19,6 +19,7 @@
 # creates an Acumos model aka solution with a loopback function
 # and serializes the result to a subdirectory.
 
+from acumos.auth import clear_jwt,_configuration
 from acumos.modeling import Model, NamedTuple
 from acumos.session import AcumosSession
 import acumos
@@ -50,8 +51,12 @@ subdir='bundle-loopback'
 print('dumping model to subdir {}'.format(subdir))
 session.dump(model, 'loopback', subdir)
 
-# Must create a valid session to on-board this to an acumos instance.
-# Alternately can use direct on-boarding
+# Un-comment the following lines to:
+#  1. configure client library with authentication
+#  2. on-board this model to an acumos instance
+#clear_jwt();
+#token = 'API_TOKEN_FROM_YOUR_ACUMOS_ACCOUNT'
+#_configuration(jwt=token)
 #host='acumos-host-name.org'
 #print('creating session using host {}'.format(host))
 #session=AcumosSession(

@@ -16,12 +16,13 @@
 .. limitations under the License.
 .. ===============LICENSE_END=========================================================
 
-====================
-Image Classification
-====================
+==============================
+Test Models and Demonstrations
+==============================
 
 .. toctree::
        :maxdepth: 2
 
+        pad/index.rst
         Cross-Sell_Analytics/Cross-Sell_Analytics.rst
         Digital_Customer_Segmentation/Digital_Customer_Segmentation.rst

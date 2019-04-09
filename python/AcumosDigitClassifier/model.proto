@@ -1,0 +1,14 @@
+syntax = "proto3";
+package VdkRbYMVRtJypYaYzziuTgUabgbUXjJS;
+
+service Model {
+  rpc predict (PredictIn) returns (PredictOut);
+}
+
+message PredictIn {
+  bytes imdata = 1;
+}
+
+message PredictOut {
+  int64 value = 1;
+}

@@ -54,9 +54,7 @@ print(summary)
 def load_data(input_file):
     data = []
     with open(input_file, 'r',encoding="utf8") as f:
-        for line in f.readlines():
-            data.append(line[:-1])
-
+        data.extend(line[:-1] for line in f)
     return data
 
 
@@ -97,13 +95,7 @@ class Preprocessor(object):
         # Tokenize the string
         tokens = self.tokenizer.tokenize(input_text.lower())
 
-        # Remove the stop words
-        tokens_stopwords = [x for x in tokens if not x in self.stop_words_english]
-
-        # Perform stemming on the tokens
-        #tokens_stemmed = [self.stemmer.stem(x) for x in tokens_stopwords]
-
-        return tokens_stopwords
+        return [x for x in tokens if x not in self.stop_words_english]
     
     
     
@@ -121,18 +113,18 @@ zz = np.zeros(shape=(40,6))
 last_number=0
 DC={}
 
-for x in range (10):
-  data = pd.DataFrame({columns[0]:"",
-                     columns[1]:"",
-                     columns[2]:"",
-                     columns[3]:"",
-                     columns[4]:"",
-                     columns[5]:"",
+for _ in range (10):
+    data = pd.DataFrame({columns[0]:"",
+                       columns[1]:"",
+                       columns[2]:"",
+                       columns[3]:"",
+                       columns[4]:"",
+                       columns[5]:"",
 
-                                                                                       
-                     
-                    },index=[0])
-  df=df.append(data,ignore_index=True)  
+
+
+                      },index=[0])
+    df=df.append(data,ignore_index=True)  
   
   
   

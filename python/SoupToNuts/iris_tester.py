@@ -42,5 +42,4 @@ id = iris.data
 it = iris.target
 
 for i in range(len(id)):
-    print ('Input: {}, Predicted: {}, Actual {}'
-           .format(id[i], classify_iris (*(id[i])), it[i]))
+    print(f'Input: {id[i]}, Predicted: {classify_iris(*id[i])}, Actual {it[i]}')

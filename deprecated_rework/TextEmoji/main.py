@@ -48,7 +48,7 @@ def count_together_emojis(emojis):
 for i, single_tweet in enumerate(get_tweets()):
     if i >= MAX_TWEETS:
         break
-    print("{}...".format(i))
+    print(f"{i}...")
     tweet, emojis, raw_tweet = single_tweet
     count_emojis(emojis)
     count_together_emojis(emojis)

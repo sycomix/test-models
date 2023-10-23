@@ -33,7 +33,7 @@ def echo(s: SimpleMessage) -> SimpleMessage:
     '''Answers its argument.'''
     return s
 
-print('Acumos version is {}'.format(acumos.__version__))
+print(f'Acumos version is {acumos.__version__}')
 model = Model(loopback=echo)
 
 # Test the model function
@@ -43,12 +43,12 @@ if out is None or out != val:
     print('Failed to get expected output, giving up.')
     sys.exit()
 else:
-    print('model function says {}'.format(out))
+    print(f'model function says {out}')
 
 # Serialize the model to support web on-boarding
 session = AcumosSession()
 subdir='bundle-loopback'
-print('dumping model to subdir {}'.format(subdir))
+print(f'dumping model to subdir {subdir}')
 session.dump(model, 'loopback', subdir)
 
 # Un-comment the following lines to:

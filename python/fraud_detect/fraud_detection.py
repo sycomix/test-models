@@ -39,13 +39,12 @@ if __name__ == "__main":
     svm = SVC()
     model = VotingClassifier(estimators=[('lr', lr), ('clf', clf), ('svm', svm)])
     model.fit(x_train, y_train)
-    def fraud_predict(X: List[float])-> List[int]:
+    def fraud_predict(X: List[float]) -> List[int]:
         '''
         :param X: a list of float
         :return: a list of int
         '''
-        yhat = model.predict(np.array(X).reshape(1, -1))
-        return yhat
+        return model.predict(np.array(X).reshape(1, -1))
     acumos_model = Model(classify=fraud_predict)
     session = AcumosSession()
     session.dump(model,'fraud_detection','.')

@@ -50,15 +50,17 @@ GOOGLE_CLOUD_SPEECH_CREDENTIALS = r"""
 
 """
 try:
-    print("Google Cloud Speech thinks you said " + r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS))
+    print(
+        f"Google Cloud Speech thinks you said {r.recognize_google_cloud(audio, credentials_json=GOOGLE_CLOUD_SPEECH_CREDENTIALS)}"
+    )
 except sr.UnknownValueError:
     print("Google Cloud Speech could not understand audio")
 except sr.RequestError as e:
     print("Could not request results from Google Cloud Speech service; {0}".format(e))
-    
+
 #CMU API
 try:
-    print("Sphinx thinks you said " + r.recognize_sphinx(audio))
+    print(f"Sphinx thinks you said {r.recognize_sphinx(audio)}")
 except sr.UnknownValueError:
     print("Sphinx could not understand audio")
 except sr.RequestError as e:
@@ -68,7 +70,9 @@ except sr.RequestError as e:
 HOUNDIFY_CLIENT_ID = "ThQxRRrVuyf3COYlxyA1Qg=="  # Houndify client IDs are Base64-encoded strings
 HOUNDIFY_CLIENT_KEY = "8z3NX__tLdaSJtWxarxpKc_Gv3Q_a7hfmE1PSsUQm12lPtqL2PejYgZtef1rqTo4E1AsiGeu8H7wWakjltgJ4g=="  # Houndify client keys are Base64-encoded strings
 try:
-    print("Houndify thinks you said " + r.recognize_houndify(audio, client_id=HOUNDIFY_CLIENT_ID, client_key=HOUNDIFY_CLIENT_KEY))
+    print(
+        f"Houndify thinks you said {r.recognize_houndify(audio, client_id=HOUNDIFY_CLIENT_ID, client_key=HOUNDIFY_CLIENT_KEY)}"
+    )
 except sr.UnknownValueError:
     print("Houndify could not understand audio")
 except sr.RequestError as e:
